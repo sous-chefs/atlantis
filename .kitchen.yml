@@ -1,0 +1,47 @@
+---
+driver:
+  name: dokken
+  chef_version: 13.8.13
+  # needed if you are running systemd in docker
+  privileged: true
+
+transport:
+  name: dokken
+
+provisioner:
+  name: dokken
+  # nodes_path: test/fixtures/nodes
+  # roles_path: test/fixtures/roles
+  # environments_path: test/fixtures/environments
+  # client_rb:
+  #   environment: kitchen
+
+verifier:
+  name: inspec
+
+platforms:
+  - name: ubuntu-1604
+    named_run_list: debian
+    driver:
+      image: ubuntu:16.04
+      privileged: true
+      pid_one_command: /bin/systemd
+      intermediate_instructions: # any tasks before runlist is evaluated and run
+      - RUN apt-get -y update && apt-get install -y net-tools curl
+      - ENV container docker
+      - CMD ['/usr/sbin/init']
+  - name: ubuntu-1804
+    named_run_list: debian
+    driver:
+      image: dokken/ubuntu-18.04
+      privileged: true
+      pid_one_command: /bin/systemd
+      intermediate_instructions: # any tasks before runlist is evaluated and run
+      - RUN apt-get -y update && apt-get install -y net-tools curl
+      - ENV container docker
+      - CMD ['/usr/sbin/init']
+      attributes:
+suites:
+  - name: server
+    run_list:
+    - recipe[atlantis_test::server]
