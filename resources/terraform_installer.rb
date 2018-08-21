@@ -28,7 +28,12 @@ action :install do
       'terraform',
       new_resource.version
     )
-    path '/usr/local/bin'
+    # while it might seem redundant to create a dir with only a
+    # single binary the ark cookbook otherwise wants to reset
+    # permissions for everything in the path. For example
+    # `* execute[set owner on /usr/local/bin] action run`
+    # `  - execute chown -R :0 /usr/local/bin`
+    path '/usr/local/bin/terraform'
     creates 'terraform'
     action :dump
     checksum new_resource.checksum unless new_resource.checksum.nil?

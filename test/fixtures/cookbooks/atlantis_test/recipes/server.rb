@@ -1,5 +1,28 @@
 # frozen_string_literal: true
 
+# setup atlantis user/group
+atlantis_user_group_setup 'atlantis' do
+  username 'atlantis'
+  groupname 'atlantis'
+end
+
+# drop down atlantis config
+# create a local hash for testing
+config_vars = {
+  'atlantis-url'          => 'https://localhost:4141',
+  'allow-repo-config'     => false,
+  'github-user'           => 'my-atlantis-bot',
+  'github-token'          => 'A_GITHUB_TOKEN',
+  'github-webhook-secret' => 'A_GITHUB_WEBHOOK_SECRET',
+  'log-level'             => 'INFO',
+  'port'                  => 4141,
+  'require-approval'      => true,
+}
+
+atlantis_config 'atlantis' do
+  template_variables config_vars
+end
+
 # install required dependencies
 package 'unzip'
 
