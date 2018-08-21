@@ -6,9 +6,8 @@ include AtlantisCookbook::Helpers
 
 property :checksum, regex: /^[a-zA-Z0-9]{64}$/, default: nil
 property :download_base_url, String, default: 'https://github.com/runatlantis/atlantis/releases/download'
-# these should probably be changed to 'atlantis'
-property :group, [String, Integer], default: 0
-property :owner, String
+property :group, [String, Integer], default: 'atlantis'
+property :owner, [String, Integer], default: 'atlantis'
 
 property :mode, [String, Integer], default: 0o755
 property :version, String, required: true
@@ -20,13 +19,18 @@ action :install do
   # install atlantis
   ark 'atlantis' do
     url github_download_url(new_resource.download_base_url, new_resource.version)
-    path '/usr/local/bin'
+    # while it might seem redundant to create a dir with only a
+    # single binary the ark cookbook otherwise wants to reset
+    # permissions for everything in the path. For example
+    # `* execute[set owner on /usr/local/bin] action run`
+    # `  - execute chown -R :0 /usr/local/bin`
+    path '/usr/local/bin/atlantis'
     creates 'atlantis'
     action :dump
     checksum new_resource.checksum unless new_resource.checksum.nil?
-    owner new_resource.owner unless new_resource.owner.nil?
-    group new_resource.group unless new_resource.group.nil?
-    mode new_resource.mode unless new_resource.mode.nil?
+    owner new_resource.owner
+    group new_resource.group
+    mode new_resource.mode
   end
 end
 
