@@ -13,7 +13,7 @@ action :create do
     comment 'Atlantis User'
     system true
     action :create
-    manage_home false
+    manage_home true # for terraform to cache plugins
   end
 
   group new_resource.groupname do
