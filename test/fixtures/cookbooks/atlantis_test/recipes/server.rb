@@ -11,12 +11,13 @@ end
 config_vars = {
   'atlantis-url'          => 'https://localhost:4141',
   'allow-repo-config'     => false,
-  'github-user'           => 'my-atlantis-bot',
-  'github-token'          => 'A_GITHUB_TOKEN',
-  'github-webhook-secret' => 'A_GITHUB_WEBHOOK_SECRET',
+  'gh-user'           => 'my-atlantis-bot',
+  'gh-token'          => 'A_GITHUB_TOKEN',
+  'gh-webhook-secret' => 'A_GITHUB_WEBHOOK_SECRET',
   'log-level'             => 'INFO',
   'port'                  => 4141,
   'require-approval'      => true,
+  'repo-whitelist'        => %w(org/repo1 org/repo2),
 }
 
 atlantis_config 'atlantis' do
@@ -36,4 +37,8 @@ terraform_installer 'terraform' do
   version '0.11.7'
   checksum '6b8ce67647a59b2a3f70199c304abca0ddec0e49fd060944c26f666298e23418'
   action :install
+end
+
+atlantis_service_systemd 'atlantis' do
+  action :setup
 end

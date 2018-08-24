@@ -19,20 +19,24 @@ describe command("#{atlantis_bin} version") do
   its('exit_status') { should eq 0 }
 end
 
-
-describe file('/etc/atlantis.yml'), :sensitive do
+describe file('/etc/atlantis.yaml'), :sensitive do
   it { should exist }
   its('group') { should eq 'atlantis' }
   its('mode') { should cmp '0600' }
 end
 
-describe yaml('/etc/atlantis.yml'), :sensitive do
+describe yaml('/etc/atlantis.yaml'), :sensitive do
   its('atlantis-url') { should eq 'https://localhost:4141' }
   its('allow-repo-config') { should eq false }
-  its('github-user') { should eq 'my-atlantis-bot'}
-  its('github-token') { should eq 'A_GITHUB_TOKEN' }
-  its('github-webhook-secret') { should eq 'A_GITHUB_WEBHOOK_SECRET' }
-  its('log-level') { should eq 'INFO' }
+  its('gh-user') { should eq 'my-atlantis-bot' }
+  its('gh-token') { should eq 'A_GITHUB_TOKEN' }
+  its('gh-webhook-secret') { should eq 'A_GITHUB_WEBHOOK_SECRET' }
+  its('log-level') { should eq 'info' }
   its('port') { should eq 4141 }
   its('require-approval') { should eq true }
+  its('repo-whitelist') { should eq 'org/repo1,org/repo2' }
+end
+
+describe http('localhost:4141/healthz') do
+  its('status') { should eq 200 }
 end

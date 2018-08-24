@@ -1,4 +1,9 @@
 ---
 <% @vars.each do |k,v| %>
-<%= k %>: <%= v %>
+<% next if k == 'config' %>
+<% if v.is_a?(Array) %>
+<%= k %>: <%= v.join(',') %>
+<% next %>
+<% end %>
+<%= k %>: <%= if k == 'log-level' then v.downcase else v end %>
 <% end %>

@@ -8,10 +8,10 @@ resource_name :terraform_installer
 
 include AtlantisCookbook::Helpers
 
+property :append_version_to_file, [TrueClass, FalseClass], default: false
 property :checksum, regex: /^[a-zA-Z0-9]{64}$/, default: nil
 property :download_base_url, String, default: 'https://releases.hashicorp.com'
 
-# these should probably be changed to 'atlantis'?
 property :group, [String, Integer], default: 0
 property :owner, String
 
@@ -33,8 +33,15 @@ action :install do
     # permissions for everything in the path. For example
     # `* execute[set owner on /usr/local/bin] action run`
     # `  - execute chown -R :0 /usr/local/bin`
+    # another benefit of this is that you can have multiple
+    # terraform versions installed into the same path and
+    # atlantis will pick it up.
     path '/usr/local/bin/terraform'
-    creates 'terraform'
+    if new_resource.append_version_to_file
+      creates "terraform#{new_resource.version}"
+    else
+      creates 'terraform'
+    end
     action :dump
     checksum new_resource.checksum unless new_resource.checksum.nil?
   end
