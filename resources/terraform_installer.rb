@@ -12,8 +12,9 @@ property :append_version_to_file, [TrueClass, FalseClass], default: false
 property :checksum, regex: /^[a-zA-Z0-9]{64}$/, default: nil
 property :download_base_url, String, default: 'https://releases.hashicorp.com'
 
-property :group, [String, Integer], default: 0
-property :owner, String
+property :group, [String, Integer], default: 'atlantis'
+property :owner, String, default: 'atlantis'
+property :mode, [String, Integer], default: 0o755
 
 property :version, String, required: true
 
@@ -28,22 +29,19 @@ action :install do
       'terraform',
       new_resource.version
     )
-    # while it might seem redundant to create a dir with only a
-    # single binary the ark cookbook otherwise wants to reset
-    # permissions for everything in the path. For example
-    # `* execute[set owner on /usr/local/bin] action run`
-    # `  - execute chown -R :0 /usr/local/bin`
-    # another benefit of this is that you can have multiple
-    # terraform versions installed into the same path and
-    # atlantis will pick it up.
-    path '/usr/local/bin/terraform'
-    if new_resource.append_version_to_file
-      creates "terraform#{new_resource.version}"
-    else
-      creates 'terraform'
-    end
-    action :dump
+    version new_resource.version
     checksum new_resource.checksum unless new_resource.checksum.nil?
+    prefix_root '/opt/atlantis'
+    prefix_home '/opt/atlantis'
+    owner new_resource.owner
+    group new_resource.group
+    mode new_resource.mode
+    if new_resource.append_version_to_file
+      has_binaries ["terraform#{new_resource.version}"]
+    else
+      has_binaries ['terraform']
+    end
+    strip_components 0
   end
 end
 

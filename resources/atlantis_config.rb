@@ -7,7 +7,7 @@ include AtlantisCookbook::Helpers
 property :atlantis_config_group, [String, Integer], default: 'atlantis'
 property :atlantis_config_owner, [String, Integer], default: 'atlantis'
 property :atlantis_config_file, String, default: 'atlantis.yaml'
-property :atlantis_config_path, String, default: '/etc'
+property :atlantis_config_path, String, default: '/opt/atlantis'
 
 property :atlantis_config_permissions, [String, Integer], default: 0o600
 property :template_cookbook, String, default: 'atlantis'
@@ -17,14 +17,6 @@ property :template_variables, Hash, default: {}
 default_action :configure
 
 action :configure do
-  directory new_resource.atlantis_config_path do
-    owner new_resource.atlantis_config_owner
-    group new_resource.atlantis_config_group
-    mode new_resource.atlantis_config_permissions
-    action :create
-    not_if { new_resource.atlantis_config_path == '/etc' }
-  end
-
   template "#{new_resource.atlantis_config_path}/#{new_resource.atlantis_config_file}" do
     sensitive true # api secrets and such
     cookbook new_resource.template_cookbook
