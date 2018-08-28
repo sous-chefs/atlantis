@@ -4,10 +4,10 @@ resource_name :atlantis_service_systemd
 
 include AtlantisCookbook::Helpers
 
-property :atlantis_bin_location, String, default: '/usr/local/bin/atlantis/atlantis'
+property :atlantis_bin_location, String, default: '/usr/local/bin/atlantis'
 property :atlantis_config_name, String, default: 'atlantis.yaml'
 property :atlantis_group, String, default: 'atlantis'
-property :atlantis_home, String, default: '/etc'
+property :atlantis_home, String, default: '/opt/atlantis'
 property :timeout_stop_sec, [Integer, String ], default: 5
 # The exit status code 143 = 128 + 15 = default terminate by system when the application doesn't have one
 property :atlantis_success_exit_status, [Integer, String], default: 143
@@ -30,7 +30,8 @@ action :setup do
         'SuccessExitStatus' => new_resource.atlantis_success_exit_status.to_i, # support strings
         'User' => new_resource.atlantis_user,
         'Group' => new_resource.atlantis_group,
-        'Environment' => 'PATH=$PATH:/usr/local/bin/terraform',
+        # not sure if anyone needs this for now lets leave it out
+        # 'Environment' => 'PATH=$PATH:/usr/local/bin/terraform',
         'Restart' => 'always',
       },
       'Install' => {

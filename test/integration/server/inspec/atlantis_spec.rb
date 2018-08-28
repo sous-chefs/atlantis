@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-atlantis_bin = '/usr/local/bin/atlantis/atlantis'
+atlantis_bin = '/usr/local/bin/atlantis'
 
 describe file(atlantis_bin) do
   it { should exist }
@@ -19,13 +19,13 @@ describe command("#{atlantis_bin} version") do
   its('exit_status') { should eq 0 }
 end
 
-describe file('/etc/atlantis.yaml'), :sensitive do
+describe file('/opt/atlantis/atlantis.yaml'), :sensitive do
   it { should exist }
   its('group') { should eq 'atlantis' }
   its('mode') { should cmp '0600' }
 end
 
-describe yaml('/etc/atlantis.yaml'), :sensitive do
+describe yaml('/opt/atlantis/atlantis.yaml'), :sensitive do
   its('atlantis-url') { should eq 'https://localhost:4141' }
   its('allow-repo-config') { should eq false }
   its('gh-user') { should eq 'my-atlantis-bot' }

@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-terraform_bin = '/usr/local/bin/terraform/terraform'
+terraform_bin = '/usr/local/bin/terraform'
 
 describe file(terraform_bin) do
   it { should exist }

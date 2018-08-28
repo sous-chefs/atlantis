@@ -19,15 +19,12 @@ action :install do
   # install atlantis
   ark 'atlantis' do
     url github_download_url(new_resource.download_base_url, new_resource.version)
-    # while it might seem redundant to create a dir with only a
-    # single binary the ark cookbook otherwise wants to reset
-    # permissions for everything in the path. For example
-    # `* execute[set owner on /usr/local/bin] action run`
-    # `  - execute chown -R :0 /usr/local/bin`
-    path '/usr/local/bin/atlantis'
-    creates 'atlantis'
-    action :dump
+    version new_resource.version
     checksum new_resource.checksum unless new_resource.checksum.nil?
+    prefix_root '/opt/atlantis'
+    prefix_home '/opt/atlantis'
+    has_binaries ['atlantis']
+    strip_components 0
     owner new_resource.owner
     group new_resource.group
     mode new_resource.mode

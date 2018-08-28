@@ -4,6 +4,7 @@ resource_name :atlantis_user_group_setup
 
 property :username, String, default: 'atlantis'
 property :groupname, String, default: 'atlantis'
+property :home, String, default: '/opt/atlantis'
 
 default_action :create
 
@@ -14,6 +15,18 @@ action :create do
     system true
     action :create
     manage_home true # for terraform to cache plugins
+    home new_resource.home
+  end
+
+  # update the dir because we cant control the permissions
+  # and when created in somewhere other than /home they get
+  # permissions that do not allow themselves to do stuff in
+  # their own home dir
+  directory new_resource.home do
+    owner new_resource.username
+    group new_resource.groupname
+    mode 0o751
+    action :create
   end
 
   group new_resource.groupname do
