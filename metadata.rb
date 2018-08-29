@@ -16,6 +16,8 @@ supports         'ubuntu', '= 14.04'
 supports         'ubuntu', '= 16.04'
 supports         'ubuntu', '= 18.04'
 
-version SemVer.find.format '%M.%m.%p'
+# TODO: come back and revisit an automated workflow
+# version SemVer.find.format '%M.%m.%p'
+version '0.1.0'
 
 depends 'ark', '~> 4.0'
