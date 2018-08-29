@@ -1,20 +1,25 @@
-bumpmajor: ## bumps version for a major release
-	bundle exec semver inc major
+# create some global variables
+CHEF_METADATA_FILE := metadata.rb
+CURRENT_COOKBOOK_VERSION := $(shell egrep "^version\s+" $(CHEF_METADATA_FILE) | awk '{ print $$2}' | tr -d \')
 
-bumpminor: ## bumps version for a minor release
-	bundle exec semver inc minor
 
-bumppatch: ## bumps version for path/hotfix release
-	bundle exec semver inc patch
+# TODO: come back and review the versioning
+# bumpmajor: ## bumps version for a major release
+# 	bundle exec semver inc major
+
+# bumpminor: ## bumps version for a minor release
+# 	bundle exec semver inc minor
+
+# bumppatch: ## bumps version for path/hotfix release
+# 	bundle exec semver inc patch
 
 foodtest: ## run foodcritic
-	bundle exec foodcritic -t ~FC019 -t ~FC052 -t ~license .
+	bundle exec foodcritic -t ~FC019 -t ~FC052 .
 
-gittag: ## tags the repo with the version in `.semver`
-	-git tag -d `bundle exec semver`
-	-git push origin :refs/tags/`bundle exec semver`
-	git tag -a `bundle exec semver tag` -m "tagging `bundle exec semver` for release"
-	git push origin `bundle exec semver`
+gittag: ## tags the repo with the version in `metadata.rb`
+	git tag -a $(CURRENT_COOKBOOK_VERSION) -m "tagging $(CURRENT_COOKBOOK_VERSION) for release"
+	@echo git push origin $(CURRENT_COOKBOOK_VERSION)
+
 
 gemdeps: ## install the gem dependencies locally in vendor/bundle
 	bundle install --path vendor/bundle

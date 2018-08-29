@@ -1,6 +1,6 @@
 <!---
 Your issue may already be reported!
-Please search on the [issue tracker](https://github.com/majormoses/tmpreaper/issues) before creating one.
+Please search on the [issue tracker](https://github.com/majormoses/chef-atlantis/issues) before creating one.
 --->
 
 ## Expected Behavior
