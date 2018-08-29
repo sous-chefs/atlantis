@@ -20,6 +20,14 @@ verifier:
   name: inspec
 
 platforms:
+  - name: ubuntu-1404
+    named_run_list: debian
+    driver:
+      image: dokken/ubuntu-14.04
+      pid_one_command: /sbin/init
+      intermediate_instructions: # any tasks before runlist is evaluated and run
+      - RUN apt-get -y update && apt-get install -y net-tools curl
+      - ENV container docker
   - name: ubuntu-1604
     named_run_list: debian
     driver:
