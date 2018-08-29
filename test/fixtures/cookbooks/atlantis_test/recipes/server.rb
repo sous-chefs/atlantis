@@ -39,6 +39,12 @@ terraform_installer 'terraform' do
   action :install
 end
 
-atlantis_service_systemd 'atlantis' do
-  action :setup
+if node['platform_version'] == '14.04'
+  atlantis_service_upstart 'atlantis' do
+    action :setup
+  end
+else
+  atlantis_service_systemd 'atlantis' do
+    action :setup
+  end
 end

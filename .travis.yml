@@ -8,6 +8,7 @@ rvm:
 
 env:
   matrix:
+    - INSTANCE=server-ubuntu-1404
     - INSTANCE=server-ubuntu-1604
     - INSTANCE=server-ubuntu-1804
 
