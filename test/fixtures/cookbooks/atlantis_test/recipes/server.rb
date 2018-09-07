@@ -25,7 +25,7 @@ atlantis_config 'atlantis' do
 end
 
 # install required dependencies
-package 'unzip'
+package %w(unzip git)
 
 atlantis_installer 'atlantis' do
   version '0.4.5'
