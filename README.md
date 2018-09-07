@@ -12,6 +12,12 @@ Install os packages such as `unzip` which is required to use the providers. For 
 package 'unzip'
 ```
 
+Similarly packages such as `git` that atlantis needs must be installed in your recipe. For example:
+```ruby
+package 'git'
+```
+
+
 ### Build and Release
 
 Maintainers are expected to cut releases within 24 hours after each functional pull request is merged into master. Updates to docs, testing, etc do not apply. If you are awaiting a release please open an issue and ping `@majormoses`.
