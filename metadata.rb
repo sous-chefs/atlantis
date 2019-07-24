@@ -1,6 +1,6 @@
 # frozen_string_literal: false
 
-require 'semver'
+#require 'semver'
 
 name             'atlantis'
 maintainer       'Ben Abrams'

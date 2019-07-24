@@ -49,6 +49,7 @@ platforms:
       - ENV container docker
       - CMD ['/usr/sbin/init']
       attributes:
+      ports: '4141'
 suites:
   - name: server
     run_list:

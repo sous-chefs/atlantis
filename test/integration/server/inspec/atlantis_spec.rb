@@ -11,7 +11,7 @@ describe file(atlantis_bin) do
   # if needed you may have to install `coreutils` (package name for deb derivitives)
   # root@dokken:/# sha256sum /usr/local/bin/atlantis/atlantis
   # c094def53949d658bb3ead360b86a432e3cc48609252621da7855f7fc7f0d136  /usr/local/bin/atlantis/atlantis
-  its('sha256sum') { should eq 'c094def53949d658bb3ead360b86a432e3cc48609252621da7855f7fc7f0d136' }
+  its('sha256sum') { should eq 'f78bd2c54c14a18aab252de360ed1c0edad1cbd29c7696766339d5c122fab632' }
 end
 
 describe command("#{atlantis_bin} version") do
