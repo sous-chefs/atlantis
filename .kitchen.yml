@@ -10,6 +10,7 @@ transport:
 
 provisioner:
   name: dokken
+  chef_license: accept
   # nodes_path: test/fixtures/nodes
   # roles_path: test/fixtures/roles
   # environments_path: test/fixtures/environments

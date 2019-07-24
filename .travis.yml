@@ -1,14 +1,18 @@
-sudo: required
+addons:
+  apt:
+    sources:
+      - chef-current-xenial
+    packages:
+      - chef-workstation
 
-service: docker
+# Don't `bundle install` which takes about 1.5 mins
+install: echo "skip bundle install"
 
-language: ruby
-rvm:
-  - 2.4.3
+env:
+  - CHEF_LICENSE="accept"
 
 env:
   matrix:
-    - INSTANCE=server-ubuntu-1404
     - INSTANCE=server-ubuntu-1604
     - INSTANCE=server-ubuntu-1804
 
@@ -16,21 +20,10 @@ env:
 # - openssl aes-256-cbc -K $encrypted_926c7e7ff18b_iv -iv $encrypted_926c7e7ff18b_iv -in .travis/majormoses.pem.enc -out .travis/majormoses.pem -d
 
 before_script:
-- sudo iptables -L DOCKER || ( echo "DOCKER iptables chain missing" ; sudo iptables -N DOCKER )
-
-install: bundle --jobs=3 --retry=3
-cache:
-  directories:
-    - vendor/bundle
-
-script:
-  - INSTANCE=$INSTANCE make travis
-
-  # TODO: create a bot user and encrypt that users creds instead
-# deploy:
-#   provider: chef-supermarket
-#   user_id: majormoses-bot
-#   client-key: .travis/majormoses-bot.pem
-#   cookbook_category: Others
-#   on:
-#     tags: true
+  - sudo iptables -L DOCKER || ( echo "DOCKER iptables chain missing" ; sudo iptables -N DOCKER )
+  - eval "$(chef shell-init bash)"
+  - chef --version
+  - cookstyle --version
+  - foodcritic --version
+  
+script: KITCHEN_LOCAL_YAML=.kitchen.yml kitchen verify ${INSTANCE}
