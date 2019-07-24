@@ -1,7 +1,7 @@
 ---
 driver:
   name: dokken
-  chef_version: 13.8.13
+  chef_version: latest
   # needed if you are running systemd in docker
   privileged: true
 
