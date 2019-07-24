@@ -1,7 +1,7 @@
 ---
 driver:
   name: dokken
-  chef_version: 13.8.13
+  chef_version: latest
   # needed if you are running systemd in docker
   privileged: true
 
@@ -49,6 +49,7 @@ platforms:
       - ENV container docker
       - CMD ['/usr/sbin/init']
       attributes:
+      ports: '4141'
 suites:
   - name: server
     run_list:
