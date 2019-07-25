@@ -29,22 +29,17 @@ package %w(unzip git)
 
 atlantis_installer 'atlantis' do
   version '0.8.3'
-  #checksum 'ca3d237a75f76e08cf4d8a33eba8aaceefeee8a21c4bc81ed971e88350e372b5'
+  checksum '8525d3e88b35e170547512f5b7d5123494d0051f76641e253c979b07629efe08'
   action :install
 end
 
 terraform_installer 'terraform' do
   version '0.12.5'
-  #checksum 'babb4a30b399fb6fc87a6aa7435371721310c2e2102a95a763ef2c979ab06ce'
+  checksum 'babb4a30b399fb6fc87a6aa7435371721310c2e2102a95a763ef2c979ab06ce2'
   action :install
 end
 
-if node['platform_version'] == '14.04'
-  atlantis_service_upstart 'atlantis' do
-    action :setup
-  end
-else
-  atlantis_service_systemd 'atlantis' do
-    action :setup
-  end
+atlantis_service_systemd 'atlantis' do
+  action :setup
 end
+
