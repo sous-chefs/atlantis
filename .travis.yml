@@ -26,4 +26,7 @@ before_script:
   - cookstyle --version
   - foodcritic --version
   
-script: KITCHEN_LOCAL_YAML=.kitchen.yml kitchen verify ${INSTANCE}
+script: 
+  - KITCHEN_LOCAL_YAML=.kitchen.yml kitchen verify ${INSTANCE}
+  - cookstyle test/fixtures/cookbooks/atlantis_test/recipes/server.rb 
+  - foodcritic test/fixtures/cookbooks/atlantis_test/recipes/server.rb 
