@@ -1,8 +1,8 @@
 # frozen_string_literal: true
+include AtlantisCookbook::Helpers
 
 resource_name :atlantis_service_systemd
-
-include AtlantisCookbook::Helpers
+provides :atlantis_service_systemd
 
 property :atlantis_bin_location, String, default: '/usr/local/bin/atlantis'
 property :atlantis_config_name, String, default: 'atlantis.yaml'
@@ -17,7 +17,7 @@ default_action :setup
 
 action :setup do
   systemd_unit 'atlantis.service' do
-    content ({
+    content(
       'Unit' => {
         'Description' => 'Atlantis',
         'After' => 'network.target',
@@ -36,8 +36,8 @@ action :setup do
       },
       'Install' => {
         'WantedBy' => 'multi-user.target',
-      },
-    })
+      }
+    )
     action [:create, :enable, :start]
   end
 end

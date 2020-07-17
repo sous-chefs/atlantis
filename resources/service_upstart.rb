@@ -1,9 +1,12 @@
+resource_name :atlantis_service_upstart
+provides :atlantis_service_upstart
+
 property :atlantis_service_template_variables, Hash, default: {
-  :atlantis_user => 'atlantis',
-  :atlantis_bin_location => '/usr/local/bin/atlantis',
-  :atlantis_config_name => 'atlantis.yaml',
-  :atlantis_home => '/opt/atlantis',
-  :timeout_stop_sec => 5,
+  atlantis_user: 'atlantis',
+  atlantis_bin_location: '/usr/local/bin/atlantis',
+  atlantis_config_name: 'atlantis.yaml',
+  atlantis_home: '/opt/atlantis',
+  timeout_stop_sec: 5,
 }
 property :atlantis_service_template_cookbook, String, default: 'atlantis'
 property :atlantis_user, String, default: 'atlantis'

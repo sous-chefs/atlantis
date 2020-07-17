@@ -1,6 +1,6 @@
 # frozen_string_literal: true
-
 resource_name :atlantis_user_group_setup
+provides :atlantis_user_group_setup
 
 property :username, String, default: 'atlantis'
 property :groupname, String, default: 'atlantis'
@@ -25,7 +25,7 @@ action :create do
   directory new_resource.home do
     owner new_resource.username
     group new_resource.groupname
-    mode 0o751
+    mode '751'
     action :create
   end
 

@@ -1,28 +1,13 @@
-## Pull Request Checklist
+# Description
 
-<!--
-If this is in reference to an existing issue please link to it.
-If this submission addresses the issue please use the `fixes #issue`so that issues are automatically closed when the pull request gets merged.
--->
+[Describe what this change achieves]
 
-#### General
+## Issues Resolved
 
-- [ ] Update Changelog following the conventions laid out [here](https://github.com/sensu-plugins/community/blob/master/HOW_WE_CHANGELOG.md)
+[List any existing issues this PR resolves]
 
-- [ ] Update README with any necessary snippets
+## Check List
 
-- [ ] Existing tests pass
-
-<!-- If this submission includes new features please add the following section:
-
-#### New Features
-
-- [ ] Tests
-
-- [ ] Added to the README
-
--->
-
-#### Purpose
-
-#### Known Compatibility Issues
+- [ ] All tests pass. See https://github.com/sous-chefs/apache2/blob/master/TESTING.md
+- [ ] New functionality includes testing.
+- [ ] New functionality has been documented in the README if applicable

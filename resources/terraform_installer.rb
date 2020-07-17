@@ -4,11 +4,12 @@
 
 # install terraform
 # TODO: install terraform via https://github.com/haidangwa/chef-terraform or other
-resource_name :terraform_installer
-
 include AtlantisCookbook::Helpers
 
-property :append_version_to_file, [TrueClass, FalseClass], default: false
+resource_name :terraform_installer
+provides :terraform_installer
+
+property :append_version_to_file, [true, false], default: false
 property :checksum, regex: /^[a-zA-Z0-9]{64}$/, default: nil
 property :download_base_url, String, default: 'https://releases.hashicorp.com'
 

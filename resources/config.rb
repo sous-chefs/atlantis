@@ -1,8 +1,8 @@
 # frozen_string_literal: true
+include AtlantisCookbook::Helpers
 
 resource_name :atlantis_config
-
-include AtlantisCookbook::Helpers
+provides :atlantis_config
 
 property :atlantis_config_group, [String, Integer], default: 'atlantis'
 property :atlantis_config_owner, [String, Integer], default: 'atlantis'
