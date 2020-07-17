@@ -1,34 +1,31 @@
-<!---
-Your issue may already be reported!
-Please search on the [issue tracker](https://github.com/majormoses/chef-atlantis/issues) before creating one.
---->
+# Brief Description
 
-## Expected Behavior
+[Brief description of issue]
 
+## Cookbook version
 
-## Actual Behavior
+[Version of the cookbook where you are encountering the issue]
 
+## Chef-client version
 
-## Steps to Reproduce the Problem (Bug or undesired outcome)
-<!---
-Include a gist with the output of the chef run
---->
+[Version of chef-client in your environment]
 
-  1.
-  1.
-  1.
+## Platform Details
 
+[Operating system distribution and release version. Cloud provider if running in the cloud]
 
-<!---
-If you'd like to propose a solution please uncomment this section and remove this line.
-## Possible Solution
+## Scenario
 
---->
+[What you are trying to achieve and you can't?]
 
-## Details about your setup
+## Steps to Reproduce
 
-<!---
-Please include anything else that may be relevant such as restricted umasks, selinux, etc
---->
-  - OS Version:
-  - Chef Version:
+[If you are filing an issue what are the things we need to do in order to repro your problem? How are you using this cookbook or any resources it includes?]
+
+## Expected Result
+
+[What are you expecting to happen as the consequence of above reproduction steps?]
+
+## Actual Result
+
+[What actually happens after the reproduction steps? Include the error output or a link to a gist if possible.]

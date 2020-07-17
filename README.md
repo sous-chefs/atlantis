@@ -1,4 +1,5 @@
 # atlantis-chef
+
 Installs and configures an [atlantis server](https://www.runatlantis.io)
 
 ## Scope
@@ -8,15 +9,16 @@ Install and configure atlantis with terraform, the cookbook only gives custom re
 ### Gotchas
 
 Install os packages such as `unzip` which is required to use the providers. For example in your recipe you can define:
+
 ```ruby
 package 'unzip'
 ```
 
 Similarly packages such as `git` that atlantis needs must be installed in your recipe. For example:
+
 ```ruby
 package 'git'
 ```
-
 
 ### Build and Release
 

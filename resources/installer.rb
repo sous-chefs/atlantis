@@ -1,8 +1,8 @@
 # frozen_string_literal: true
+include AtlantisCookbook::Helpers
 
 resource_name :atlantis_installer
-
-include AtlantisCookbook::Helpers
+provides :atlantis_installer
 
 property :checksum, regex: /^[a-zA-Z0-9]{64}$/, default: nil
 property :download_base_url, String, default: 'https://github.com/runatlantis/atlantis/releases/download'
