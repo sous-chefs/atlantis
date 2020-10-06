@@ -8,6 +8,7 @@ provisioner:
   enforce_idempotency: true
   multiple_converge: 2
   deprecations_as_errors: true
+  chef_version: <%= ENV['CHEF_VERSION'] || '16.4' %>
 
 verifier:
   name: inspec

@@ -11,13 +11,13 @@ end
 config_vars = {
   'atlantis-url'          => 'https://localhost:4141',
   'allow-repo-config'     => false,
-  'gh-user'           => 'my-atlantis-bot',
-  'gh-token'          => 'A_GITHUB_TOKEN',
-  'gh-webhook-secret' => 'A_GITHUB_WEBHOOK_SECRET',
-  'log-level'             => 'INFO',
+  'gh-user'               => 'my-atlantis-bot',
+  'gh-token'              => 'A_GITHUB_TOKEN',
+  'gh-webhook-secret'     => 'A_GITHUB_WEBHOOK_SECRET',
+  'log-level'             => 'info',
   'port'                  => 4141,
   'require-approval'      => true,
-  'repo-whitelist'        => %w(org/repo1 org/repo2),
+  'repo-whitelist'        => %w(org/repo1 org/repo2).join(','),
 }
 
 atlantis_config 'atlantis' do

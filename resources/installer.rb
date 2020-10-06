@@ -4,7 +4,7 @@ include AtlantisCookbook::Helpers
 resource_name :atlantis_installer
 provides :atlantis_installer
 
-property :checksum, regex: /^[a-zA-Z0-9]{64}$/, default: nil
+property :checksum, String, regex: /^[a-zA-Z0-9]{64}$/
 property :download_base_url, String, default: 'https://github.com/runatlantis/atlantis/releases/download'
 property :group, [String, Integer], default: 'atlantis'
 property :owner, [String, Integer], default: 'atlantis'

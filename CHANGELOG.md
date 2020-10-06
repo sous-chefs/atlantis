@@ -1,14 +1,19 @@
-# Change Log
+# atlantis Cookbook CHANGELOG
 
-This project adheres to [Semantic Versioning](http://semver.org/).
+This file is used to list changes made in each version of the atlantis cookbook.
 
-This CHANGELOG follows the format located [here](https://github.com/sensu-plugins/community/blob/master/HOW_WE_CHANGELOG.md)
+## 1.0.0 (2020-10-07)
 
-## [Unreleased]
+- Update to Sous-Chefs common configs and repo style
+- Xorimabot file standardizations
+- Update README.md CHANGELOG.md and documentation
+- Cookstyle fixes
+- Update ark dependency to 5.0
+- **BREAKING CHANGE:** Updated config template to convert hash to YAML instead of custom logic
+  - log-level must be lower case
+  - repo-whitelist must be a `,` joined string
 
-## [0.1.0] - 2018-08-29
-
-### Added
+## 0.1.0 (2018-08-29)
 
 - repo skel, misc project helpers (@majormoses)
 - local and `travis-ci` testing: lint + integration (@majormoses)
@@ -20,6 +25,3 @@ This CHANGELOG follows the format located [here](https://github.com/sensu-plugin
 - new resource `atlantis_terrform_installer` to install or remove `terraform` for use with atlantis (@majormoses)
 - new resource `atlantis_user_group_setup` which sets up or removes users, groups, and directories for atlantis service to use (@majormoses)
 - use Apache 2 license (@majormoses)
-
-[Unreleased]: https://github.com/majormoses/atlantis-chef/compare/v0.1.0...HEAD
-[0.1.0]: https://github.com/majormoses/atlantis-chef/comapre/40189cb9ae94bd6dadfc312856a98e224a7c839f...0.1.0

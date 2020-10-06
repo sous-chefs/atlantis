@@ -3,7 +3,7 @@ driver:
   name: dokken
   # because Docker and SystemD
   privileged: true
-  chef_version: <%= ENV['CHEF_VERSION'] || 'current' %>
+  chef_version: <%= ENV['CHEF_VERSION'] || '16.4' %>
   env: [CHEF_LICENSE=accept]
 
 transport:
