@@ -1,4 +1,13 @@
+[back to resource list](https://github.com/sous-chefs/atlantis#resources)
+
+---
+
 # atlantis_config
+
+## Actions
+
+- `:configure` [default]
+- `:remove`
 
 ## Properties
 

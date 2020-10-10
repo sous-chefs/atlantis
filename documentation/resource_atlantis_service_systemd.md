@@ -1,4 +1,13 @@
+[back to resource list](https://github.com/sous-chefs/atlantis#resources)
+
+---
+
 # atlantis_service_systemd
+
+## Actions
+
+- `:setup` [default]
+- `:remove`
 
 ## Properties
 
@@ -15,7 +24,5 @@
 ## Examples
 
 ```ruby
-atlantis_service_systemd 'atlantis' do
-  action :setup
-end
+atlantis_service_systemd 'atlantis'
 ```

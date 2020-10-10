@@ -1,4 +1,13 @@
+[back to resource list](https://github.com/sous-chefs/atlantis#resources)
+
+---
+
 # terraform_installer
+
+## Actions
+
+- `:install` [default]
+- `:remove`
 
 ## Properties
 
@@ -18,6 +27,5 @@
 terraform_installer 'terraform' do
   version '0.11.7'
   checksum '6b8ce67647a59b2a3f70199c304abca0ddec0e49fd060944c26f666298e23418'
-  action :install
 end
 ```

@@ -17,6 +17,8 @@ property :template_variables, Hash, default: {}
 default_action :configure
 
 action :configure do
+  product = ChefUtils::Dist::Infra::PRODUCT || 'Configuration Manager'
+
   template "#{new_resource.atlantis_config_path}/#{new_resource.atlantis_config_file}" do
     sensitive true # api secrets and such
     cookbook new_resource.template_cookbook
@@ -24,7 +26,7 @@ action :configure do
     owner new_resource.atlantis_config_owner
     group new_resource.atlantis_config_group
     mode new_resource.atlantis_config_permissions
-    variables(vars: new_resource.template_variables)
+    variables(vars: new_resource.template_variables, product: product)
   end
 end
 
