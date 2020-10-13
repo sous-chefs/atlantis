@@ -11,4 +11,4 @@ version          '1.0.0'
 supports 'centos'
 supports 'ubuntu'
 
-depends 'ark', '~> 4.0'
+depends 'ark', '>= 5.0'

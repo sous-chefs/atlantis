@@ -1,10 +1,29 @@
-# Change Log
+# Changelog
 
-This project adheres to [Semantic Versioning](http://semver.org/).
+All notable changes to this project will be documented in this file.
 
-This CHANGELOG follows the format located [here](https://github.com/sensu-plugins/community/blob/master/HOW_WE_CHANGELOG.md)
+The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
+and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 ## [Unreleased]
+
+### Added
+
+- Documentation
+
+### Changed
+
+- Update to Sous-Chefs common configs and repo style
+- Xorimabot file standardizations
+- Update README.md CHANGELOG.md
+- Cookstyle fixes
+- Update ark dependency to 5.0
+
+### Removed
+
+- **BREAKING CHANGE:** Updated config template to convert hash to YAML instead of custom logic
+  - log-level must be lower case
+  - repo-whitelist must be a `,` joined string
 
 ## [0.1.0] - 2018-08-29
 
@@ -20,6 +39,3 @@ This CHANGELOG follows the format located [here](https://github.com/sensu-plugin
 - new resource `atlantis_terrform_installer` to install or remove `terraform` for use with atlantis (@majormoses)
 - new resource `atlantis_user_group_setup` which sets up or removes users, groups, and directories for atlantis service to use (@majormoses)
 - use Apache 2 license (@majormoses)
-
-[Unreleased]: https://github.com/majormoses/atlantis-chef/compare/v0.1.0...HEAD
-[0.1.0]: https://github.com/majormoses/atlantis-chef/comapre/40189cb9ae94bd6dadfc312856a98e224a7c839f...0.1.0

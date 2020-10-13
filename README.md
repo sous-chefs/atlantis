@@ -1,38 +1,74 @@
-# atlantis-chef
+# atlantis Cookbook
 
-Installs and configures an [atlantis server](https://www.runatlantis.io)
+[![Cookbook Version](https://img.shields.io/cookbook/v/atlantis.svg)](https://supermarket.chef.io/cookbooks/atlantis)
+[![CI State](https://github.com/sous-chefs/apache2/workflows/ci/badge.svg)](https://github.com/sous-chefs/atlantis/actions?query=workflow%3Aci)
+[![OpenCollective](https://opencollective.com/sous-chefs/backers/badge.svg)](#backers)
+[![OpenCollective](https://opencollective.com/sous-chefs/sponsors/badge.svg)](#sponsors)
+[![License](https://img.shields.io/badge/License-Apache%202.0-green.svg)](https://opensource.org/licenses/Apache-2.0)
 
-## Scope
+Installs and configures an [atlantis server](https://www.runatlantis.io) with terraform, the cookbook only gives custom resources to leverage and will not include any recipes, for an example you can look at the testing cookbook at `test/fixtures/cookbooks/atlantis_test`.
 
-Install and configure atlantis with terraform, the cookbook only gives custom resources to leverage and will not include any recipes, for an example you can look at the testing cookbook at `test/fixtures/cookbooks/atlantis_test`.
+## Maintainers
 
-### Gotchas
+This cookbook is maintained by the Sous Chefs. The Sous Chefs are a community of Chef cookbook maintainers working together to maintain important cookbooks. If you’d like to know more please visit [sous-chefs.org](https://sous-chefs.org/) or come chat with us on the Chef Community Slack in [#sous-chefs](https://chefcommunity.slack.com/messages/C2V7B88SF).
 
-Install os packages such as `unzip` which is required to use the providers. For example in your recipe you can define:
+## Requirements
 
-```ruby
-package 'unzip'
-```
+### Cookbooks
 
-Similarly packages such as `git` that atlantis needs must be installed in your recipe. For example:
+The following cookbooks are direct dependencies because they're used for common "default" functionality.
 
-```ruby
-package 'git'
-```
+- `ark` for installing terraform and atlantis
 
-### Build and Release
+### Platforms
 
-Maintainers are expected to cut releases within 24 hours after each functional pull request is merged into master. Updates to docs, testing, etc do not apply. If you are awaiting a release please open an issue and ping `@majormoses`.
+The following platforms are supported and tested with Test Kitchen:
 
-#### Versioning
+- CentOS 7+
+- Ubuntu 14.04+
 
-We follow [semver2](https://semver.org/spec/v2.0.0.html) very strictly and any notable exceptions are outlined [here](https://github.com/sensu-plugins/community/blob/master/HOW_WE_VERSION.md)
+Other Debian and RHEL family distributions are assumed to work.
 
-#### Process
+### Chef
 
-1. Manually bump the version in `metadata.rb`
-1. Update Changelog to include any missing features.
-1. Update Changelog to include a version header and diff links
-1. Pull request their changes into the `default` (will typically be `master` branch)
-1. Once it has been merged into the default branch you can tag the commit using tools such as [hub](https://github.com/github/hub) via `hub release create $MAJOR.$MINOR.$PATCH` or using `make gittag`. To push to the supermarket you can run `stove --no-git` if you have permission on the supermarket.
-1. Put a link to the pull request with a link to the supermarket release to inform the contributor that their change has been released.
+- Chef 15+
+
+May continue working on older EOL versions of Chef
+
+## Resources
+
+- [atlantis_config](https://github.com/sous-chefs/atlantis/blob/master/documentation/resource_atlantis_config.md)
+- [atlantis_installer](https://github.com/sous-chefs/atlantis/blob/master/documentation/resource_atlantis_installer.md)
+- [atlantis_service_systemd](https://github.com/sous-chefs/atlantis/blob/master/documentation/resource_atlantis_service_systemd.md)
+- [atlantis_service_upstart](https://github.com/sous-chefs/atlantis/blob/master/documentation/resource_atlantis_service_upstart.md)
+- [terraform_installer](https://github.com/sous-chefs/atlantis/blob/master/documentation/resource_terraform_installer.md)
+- [atlantis_user_group_setup](https://github.com/sous-chefs/atlantis/blob/master/documentation/resource_atlantis_user_group_setup.md)
+
+## Usage
+
+This cookbook is now resource-based. Use the resources described above in wrapper cookbooks or recipes.
+
+## Contributors
+
+This project exists thanks to all the people who [contribute.](https://opencollective.com/sous-chefs/contributors.svg?width=890&button=false)
+
+### Backers
+
+Thank you to all our backers!
+
+![https://opencollective.com/sous-chefs#backers](https://opencollective.com/sous-chefs/backers.svg?width=600&avatarHeight=40)
+
+### Sponsors
+
+Support this project by becoming a sponsor. Your logo will show up here with a link to your website.
+
+![https://opencollective.com/sous-chefs/sponsor/0/website](https://opencollective.com/sous-chefs/sponsor/0/avatar.svg?avatarHeight=100)
+![https://opencollective.com/sous-chefs/sponsor/1/website](https://opencollective.com/sous-chefs/sponsor/1/avatar.svg?avatarHeight=100)
+![https://opencollective.com/sous-chefs/sponsor/2/website](https://opencollective.com/sous-chefs/sponsor/2/avatar.svg?avatarHeight=100)
+![https://opencollective.com/sous-chefs/sponsor/3/website](https://opencollective.com/sous-chefs/sponsor/3/avatar.svg?avatarHeight=100)
+![https://opencollective.com/sous-chefs/sponsor/4/website](https://opencollective.com/sous-chefs/sponsor/4/avatar.svg?avatarHeight=100)
+![https://opencollective.com/sous-chefs/sponsor/5/website](https://opencollective.com/sous-chefs/sponsor/5/avatar.svg?avatarHeight=100)
+![https://opencollective.com/sous-chefs/sponsor/6/website](https://opencollective.com/sous-chefs/sponsor/6/avatar.svg?avatarHeight=100)
+![https://opencollective.com/sous-chefs/sponsor/7/website](https://opencollective.com/sous-chefs/sponsor/7/avatar.svg?avatarHeight=100)
+![https://opencollective.com/sous-chefs/sponsor/8/website](https://opencollective.com/sous-chefs/sponsor/8/avatar.svg?avatarHeight=100)
+![https://opencollective.com/sous-chefs/sponsor/9/website](https://opencollective.com/sous-chefs/sponsor/9/avatar.svg?avatarHeight=100)

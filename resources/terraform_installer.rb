@@ -10,12 +10,12 @@ resource_name :terraform_installer
 provides :terraform_installer
 
 property :append_version_to_file, [true, false], default: false
-property :checksum, regex: /^[a-zA-Z0-9]{64}$/, default: nil
+property :checksum, String, regex: /^[a-zA-Z0-9]{64}$/
 property :download_base_url, String, default: 'https://releases.hashicorp.com'
 
 property :group, [String, Integer], default: 'atlantis'
 property :owner, String, default: 'atlantis'
-property :mode, [String, Integer], default: 0o755
+property :mode, [String, Integer], default: '0755'
 
 property :version, String, required: true
 

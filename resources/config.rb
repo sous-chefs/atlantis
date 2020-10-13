@@ -9,7 +9,7 @@ property :atlantis_config_owner, [String, Integer], default: 'atlantis'
 property :atlantis_config_file, String, default: 'atlantis.yaml'
 property :atlantis_config_path, String, default: '/opt/atlantis'
 
-property :atlantis_config_permissions, [String, Integer], default: 0o600
+property :atlantis_config_permissions, [String, Integer], default: '0600'
 property :template_cookbook, String, default: 'atlantis'
 property :template_config_file, String, default: 'atlantis.yaml.erb'
 property :template_variables, Hash, default: {}
