@@ -15,7 +15,7 @@ property :download_base_url, String, default: 'https://releases.hashicorp.com'
 
 property :group, [String, Integer], default: 'atlantis'
 property :owner, String, default: 'atlantis'
-property :mode, [String, Integer], default: 0o755
+property :mode, [String, Integer], default: '0755'
 
 property :version, String, required: true
 

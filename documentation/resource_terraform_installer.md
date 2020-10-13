@@ -15,10 +15,10 @@
 | --------------------------- | --------------- | ----------------------------------------------------------- | ------------- |
 | append_version_to_file      | true, false     | false                                                       |               |
 | checksum                    | String          |                                                             | Required      |
-| download_base_url           | String          | `https://releases.hashicorp.com`                           |               |
+| download_base_url           | String          | `https://releases.hashicorp.com`                            |               |
 | group                       | String, Integer | `atlantis`                                                  |               |
 | owner                       | String, Integer | `atlantis`                                                  |               |
-| mode                        | String, Integer | 0o755                                                       |               |
+| mode                        | String, Integer | `0755`                                                      |               |
 | version                     | String          |                                                             | Required      |
 
 ## Examples

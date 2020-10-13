@@ -17,7 +17,7 @@
 | atlantis_config_owner       | String, Integer | `atlantis`                  |               |
 | atlantis_config_file        | String          | `atlantis.yml`              |               |
 | atlantis_config_path        | String          | `/opt/atlantis`             |               |
-| atlantis_config_permissions | String, Integer | 0o600                       |               |
+| atlantis_config_permissions | String, Integer | `0600`                      |               |
 | template_cookbook           | String          | `atlantis`                  |               |
 | template_config_file        | String          | `atlantis.yaml.erb`         |               |
 | template_variables          | Hash            | {}                          |               |

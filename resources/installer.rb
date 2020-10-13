@@ -9,7 +9,7 @@ property :download_base_url, String, default: 'https://github.com/runatlantis/at
 property :group, [String, Integer], default: 'atlantis'
 property :owner, [String, Integer], default: 'atlantis'
 
-property :mode, [String, Integer], default: 0o755
+property :mode, [String, Integer], default: '0755'
 property :version, String, required: true
 
 default_action :install
