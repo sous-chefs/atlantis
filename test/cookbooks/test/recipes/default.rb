@@ -16,8 +16,7 @@ config_vars = {
   'gh-webhook-secret'     => 'A_GITHUB_WEBHOOK_SECRET',
   'log-level'             => 'info',
   'port'                  => 4141,
-  'require-approval'      => true,
-  'repo-whitelist'        => %w(org/repo1 org/repo2).join(','),
+  'repo-allowlist'        => %w(org/repo1 org/repo2).join(','),
 }
 
 atlantis_config 'atlantis' do
@@ -28,17 +27,20 @@ end
 package %w(unzip git)
 
 atlantis_installer 'atlantis' do
-  version '0.4.5'
-  checksum 'ca3d237a75f76e08cf4d8a33eba8aaceefeee8a21c4bc81ed971e88350e372b5'
+  version '0.15.0'
+  checksum 'a236e7c9df159f8787b143c670f1899dd4bc4349f23ed696468600280fa1266e'
 end
 
 terraform_installer 'terraform' do
-  version '0.11.7'
-  checksum '6b8ce67647a59b2a3f70199c304abca0ddec0e49fd060944c26f666298e23418'
+  version '0.13.3'
+  checksum '35c662be9d32d38815cde5fa4c9fa61a3b7f39952ecd50ebf92fd1b2ddd6109b'
 end
 
 if node['platform_version'] == '14.04'
   atlantis_service_upstart 'atlantis'
 else
-  atlantis_service_systemd 'atlantis'
+  atlantis_service_systemd 'atlantis' do
+    use_exec_stop false
+    environment 'John=Basement'
+  end
 end

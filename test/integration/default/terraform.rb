@@ -11,7 +11,7 @@ describe file(terraform_bin) do
   # if needed you may have to install `coreutils` (package name for deb derivitives)
   # root@dokken:/# sha256sum /usr/local/bin/terraform/terraform
   # 00cc2e727e662fb81c789b2b8371d82d6be203ddc76c49232ed9c17b4980949a  /usr/local/bin/terraform/terraform
-  its('sha256sum') { should eq '00cc2e727e662fb81c789b2b8371d82d6be203ddc76c49232ed9c17b4980949a' }
+  its('sha256sum') { should eq 'dba9536bd31ffceb3abdc49f2eeed0fad506bab30d32d0a605d0a8d9f92f8e6f' }
 end
 
 describe command("#{terraform_bin} --version") do

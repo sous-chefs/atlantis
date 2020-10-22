@@ -1,5 +1,4 @@
 # yamllint disable-file
 # ################# MANAGED BY AUTOMATION DO NOT EDIT ####################
 # ###################### Atlantis Configuration ##########################
-<% require 'yaml' %>
-<%= @vars.to_yaml %>
+<%= YAML.dump(@vars) %>
