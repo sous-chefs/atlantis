@@ -41,6 +41,6 @@ if node['platform_version'] == '14.04'
 else
   atlantis_service_systemd 'atlantis' do
     use_exec_stop false
-    environment 'John=Basement'
+    environment ['John=Basement', 'Tom=Roof']
   end
 end

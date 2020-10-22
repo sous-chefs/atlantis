@@ -18,7 +18,7 @@ control 'Atlantis Service SystemD' do
     its('Service.Type') { should cmp 'simple' }
     its('Service.User') { should cmp 'atlantis' }
     its('Service.Group') { should cmp 'atlantis' }
-    its('Service.Environment') { should cmp 'John=Basement' }
+    its('Service.Environment') { should cmp 'Tom=Roof' }
     its('Service.ExecStart') { should cmp '/usr/local/bin/atlantis server --config /opt/atlantis/atlantis.yaml' }
     its('Service.TimeoutStopSec') { should cmp 5 }
     its('Service.SuccessExitStatus') { should cmp 143 }

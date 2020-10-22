@@ -14,8 +14,8 @@ property :atlantis_success_exit_status, [Integer, String], default: 143
 property :atlantis_user, String, default: 'atlantis'
 property :atlantis_user, String, default: 'atlantis'
 property :use_exec_stop, [true, false], default: true
-property :environment, String
-property :environment_file, String
+property :environment, [String, Array]
+property :environment_file, [String, Array]
 
 default_action :setup
 
