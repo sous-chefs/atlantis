@@ -5,6 +5,18 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## Unreleased
+
+### Added
+
+- Update systemd service resource to support environment file/vars
+
+### Changed
+
+- Fix to properly use recommended YAML.dump() method in template
+- Update systemd service resource to remove ExecStop for compatibility with v0.15
+- Update documentation to reflect changed/deprecated values in Atlantis config
+
 ## [1.0.0] - 2020-10-13
 
 ### Added
@@ -18,8 +30,6 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Update README.md CHANGELOG.md
 - Cookstyle fixes
 - Update ark dependency to 5.0
-
-### Removed
 
 - **BREAKING CHANGE:** Updated config template to convert hash to YAML instead of custom logic
   - log-level must be lower case

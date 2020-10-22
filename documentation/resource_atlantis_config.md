@@ -33,8 +33,7 @@ config_vars = {
   'gh-webhook-secret'     => 'A_GITHUB_WEBHOOK_SECRET',
   'log-level'             => 'info',
   'port'                  => 4141,
-  'require-approval'      => true,
-  'repo-whitelist'        => %w(org/repo1 org/repo2).join(','),
+  'repo-allowlist'        => %w(org/repo1 org/repo2).join(','),
 }
 
 atlantis_config 'atlantis' do

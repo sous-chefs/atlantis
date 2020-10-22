@@ -11,7 +11,7 @@ describe file(atlantis_bin) do
   # if needed you may have to install `coreutils` (package name for deb derivitives)
   # root@dokken:/# sha256sum /usr/local/bin/atlantis/atlantis
   # c094def53949d658bb3ead360b86a432e3cc48609252621da7855f7fc7f0d136  /usr/local/bin/atlantis/atlantis
-  its('sha256sum') { should eq 'c094def53949d658bb3ead360b86a432e3cc48609252621da7855f7fc7f0d136' }
+  its('sha256sum') { should eq 'e4169fdad7cd01809565b723b0c3a30f8119481e1cee79be20cf577f6607865e' }
 end
 
 describe command("#{atlantis_bin} version") do
@@ -33,8 +33,7 @@ describe yaml('/opt/atlantis/atlantis.yaml'), :sensitive do
   its('gh-webhook-secret') { should eq 'A_GITHUB_WEBHOOK_SECRET' }
   its('log-level') { should eq 'info' }
   its('port') { should eq 4141 }
-  its('require-approval') { should eq true }
-  its('repo-whitelist') { should eq 'org/repo1,org/repo2' }
+  its('repo-allowlist') { should eq 'org/repo1,org/repo2' }
 end
 
 describe http('localhost:4141/healthz') do
