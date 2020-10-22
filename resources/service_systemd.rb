@@ -28,7 +28,6 @@ action :setup do
     'Service' => {
       'Type' => 'simple',
       'ExecStart' => "#{new_resource.atlantis_bin_location} server --config #{new_resource.atlantis_home}/#{new_resource.atlantis_config_name}",
-      'TimeoutStopSec' => new_resource.timeout_stop_sec.to_i,
       'SuccessExitStatus' => new_resource.atlantis_success_exit_status.to_i, # support strings
       'User' => new_resource.atlantis_user,
       'Group' => new_resource.atlantis_group,
@@ -39,6 +38,7 @@ action :setup do
     },
   }
   service_content['Service']['ExecStop'] = '/bin/kill $MAINPID' if new_resource.use_exec_stop
+  service_content['Service']['TimeoutStopSec'] = new_resource.timeout_stop_sec.to_i if new_resource.use_exec_stop
   service_content['Service']['Environment'] = new_resource.environment if new_resource.environment
   service_content['Service']['EnvironmentFile'] = new_resource.environment_file if new_resource.environment_file
 
