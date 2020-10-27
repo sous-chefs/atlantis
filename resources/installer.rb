@@ -7,7 +7,7 @@ provides :atlantis_installer
 property :checksum, String, regex: /^[a-zA-Z0-9]{64}$/
 property :download_base_url, String, default: 'https://github.com/runatlantis/atlantis/releases/download'
 property :group, [String, Integer], default: 'atlantis'
-property :owner, [String, Integer], default: 'atlantis'
+property :owner, String, default: 'atlantis'
 
 property :mode, [String, Integer], default: '0755'
 property :version, String, required: true
