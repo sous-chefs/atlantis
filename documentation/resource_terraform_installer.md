@@ -17,7 +17,7 @@
 | checksum                    | String          |                                                             | Required      |
 | download_base_url           | String          | `https://releases.hashicorp.com`                            |               |
 | group                       | String, Integer | `atlantis`                                                  |               |
-| owner                       | String, Integer | `atlantis`                                                  |               |
+| owner                       | String          | `atlantis`                                                  |               |
 | mode                        | String, Integer | `0755`                                                      |               |
 | version                     | String          |                                                             | Required      |
 

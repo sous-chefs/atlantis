@@ -19,6 +19,10 @@ module AtlantisCookbook
       # https://releases.hashicorp.com/terraform/0.11.7/terraform_0.11.7_linux_amd64.zip
       "#{base_url}/#{product}/#{version}/#{product}_#{version}_linux_#{cpu_arch}.zip"
     end
+
+    def terragrunt_github_download_url(base_url, version)
+      # https://github.com/gruntwork-io/terragrunt/releases/download/v0.25.4/terragrunt_linux_amd64
+      "#{base_url}/v#{version}/terragrunt_linux_#{cpu_arch}"
     end
   end
 end

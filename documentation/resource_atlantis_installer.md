@@ -16,7 +16,7 @@
 | checksum                    | String          |                                                             | Required      |
 | download_base_url           | String          | `https://github.com/runatlantis/atlantis/releases/download` |               |
 | group                       | String, Integer | `atlantis`                                                  |               |
-| owner                       | String, Integer | `atlantis`                                                  |               |
+| owner                       | String          | `atlantis`                                                  |               |
 | mode                        | String, Integer | `0755`                                                      |               |
 | version                     | String          |                                                             | Required      |
 
