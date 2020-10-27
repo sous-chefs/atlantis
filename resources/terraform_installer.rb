@@ -1,9 +1,4 @@
 # frozen_string_literal: true
-
-# include our helpers
-
-# install terraform
-# TODO: install terraform via https://github.com/haidangwa/chef-terraform or other
 include AtlantisCookbook::Helpers
 
 resource_name :terraform_installer
