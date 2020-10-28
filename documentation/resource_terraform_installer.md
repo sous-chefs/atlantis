@@ -11,21 +11,18 @@
 
 ## Properties
 
-| name                        | Type            | Default                                                     | Description   |
-| --------------------------- | --------------- | ----------------------------------------------------------- | ------------- |
-| append_version_to_file      | true, false     | false                                                       |               |
-| checksum                    | String          |                                                             | Required      |
-| download_base_url           | String          | `https://releases.hashicorp.com`                            |               |
-| group                       | String, Integer | `atlantis`                                                  |               |
-| owner                       | String, Integer | `atlantis`                                                  |               |
-| mode                        | String, Integer | `0755`                                                      |               |
-| version                     | String          |                                                             | Required      |
+| name                        | Type            | Default                                                            | Description   |
+| --------------------------- | --------------- | ------------------------------------------------------------------ | ------------- |
+| append_version_to_file      | true, false     | false                                                              |               |
+| checksum                    | String          | `35c662be9d32d38815cde5fa4c9fa61a3b7f39952ecd50ebf92fd1b2ddd6109b` | Required      |
+| download_base_url           | String          | `https://releases.hashicorp.com`                                   |               |
+| group                       | String, Integer | `atlantis`                                                         |               |
+| owner                       | String          | `atlantis`                                                         |               |
+| mode                        | String, Integer | `0755`                                                             |               |
+| version                     | String          | `0.13.3`                                                           | Required      |
 
 ## Examples
 
 ```ruby
-terraform_installer 'terraform' do
-  version '0.11.7'
-  checksum '6b8ce67647a59b2a3f70199c304abca0ddec0e49fd060944c26f666298e23418'
-end
+terraform_installer 'default'
 ```

@@ -42,6 +42,7 @@ May continue working on older EOL versions of Chef
 - [atlantis_service_systemd](https://github.com/sous-chefs/atlantis/blob/master/documentation/resource_atlantis_service_systemd.md)
 - [atlantis_service_upstart](https://github.com/sous-chefs/atlantis/blob/master/documentation/resource_atlantis_service_upstart.md)
 - [terraform_installer](https://github.com/sous-chefs/atlantis/blob/master/documentation/resource_terraform_installer.md)
+- [terragrunt_installer](https://github.com/sous-chefs/atlantis/blob/master/documentation/resource_terragrunt_installer.md)
 - [atlantis_user_group_setup](https://github.com/sous-chefs/atlantis/blob/master/documentation/resource_atlantis_user_group_setup.md)
 
 ## Usage

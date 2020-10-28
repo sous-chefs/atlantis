@@ -6,13 +6,12 @@ provides :atlantis_service_systemd
 
 property :atlantis_bin_location, String, default: '/usr/local/bin/atlantis'
 property :atlantis_config_name, String, default: 'atlantis.yaml'
-property :atlantis_group, String, default: 'atlantis'
 property :atlantis_home, String, default: '/opt/atlantis'
 property :timeout_stop_sec, [Integer, String], default: 5
 # The exit status code 143 = 128 + 15 = default terminate by system when the application doesn't have one
 property :atlantis_success_exit_status, [Integer, String], default: 143
 property :atlantis_user, String, default: 'atlantis'
-property :atlantis_user, String, default: 'atlantis'
+property :atlantis_group, String, default: 'atlantis'
 property :use_exec_stop, [true, false], default: true
 property :environment, [String, Array]
 property :environment_file, [String, Array]

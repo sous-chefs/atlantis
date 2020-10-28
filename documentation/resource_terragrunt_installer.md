@@ -1,34 +1,28 @@
-# frozen_string_literal: true
+[back to resource list](https://github.com/sous-chefs/atlantis#resources)
 
-# setup atlantis user/group
-atlantis_user_group_setup 'atlantis' do
-  username 'atlantis'
-  groupname 'atlantis'
-end
+---
 
-# drop down atlantis config
-# create a local hash for testing
-config_vars = {
-  'atlantis-url'          => 'https://localhost:4141',
-  'allow-repo-config'     => false,
-  'gh-user'               => 'my-atlantis-bot',
-  'gh-token'              => 'A_GITHUB_TOKEN',
-  'gh-webhook-secret'     => 'A_GITHUB_WEBHOOK_SECRET',
-  'log-level'             => 'info',
-  'port'                  => 4141,
-  'repo-allowlist'        => %w(org/repo1 org/repo2).join(','),
-}
+# terragrunt_installer
 
-atlantis_config 'atlantis' do
-  template_variables config_vars
-end
+## Actions
 
-# install required dependencies
-package %w(unzip git)
+- `:install` [default]
+- `:remove`
 
-atlantis_installer 'atlantis'
-terraform_installer 'terraform'
+## Properties
 
+| name                        | Type            | Default                                                            | Description   |
+| --------------------------- | --------------- | ------------------------------------------------------------------ | ------------- |
+| checksum                    | String          | `3b033389977ca6e7d10bad10514f22fa767c85b76db92befe83e67bafa2c8413` | Required      |
+| download_base_url           | String          | `https://github.com/gruntwork-io/terragrunt/releases/download`     |               |
+| group                       | String, Integer | `atlantis`                                                         |               |
+| owner                       | String          | `atlantis`                                                         |               |
+| mode                        | String, Integer | `0755`                                                             |               |
+| version                     | String          | `0.25.4`                                                           | Required      |
+
+## Examples
+
+```ruby
 terragrunt_repo_config = {
   'repos' => [
     {
@@ -77,13 +71,5 @@ atlantis_config 'repo-config' do
   template_variables terragrunt_repo_config
 end
 
-terragrunt_installer 'terragrunt'
-
-if node['platform_version'] == '14.04'
-  atlantis_service_upstart 'atlantis'
-else
-  atlantis_service_systemd 'atlantis' do
-    use_exec_stop false
-    environment ['John=Basement', 'Tom=Roof']
-  end
-end
+terragrunt_installer 'default'
+```

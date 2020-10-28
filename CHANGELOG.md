@@ -5,6 +5,18 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## Unreleased
+
+### Added
+
+- Support for installing terragrunt and documentation of examples for configuration
+- Default version support for installers to get setup without having to lookup versions
+
+### Fixed
+
+- Ark only support intergers on groups not owners
+- Systemd resource user property was listed twice
+
 ## [1.1.0] - 2020-10-22
 
 ### Added
