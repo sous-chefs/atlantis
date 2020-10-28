@@ -23,8 +23,5 @@
 ## Examples
 
 ```ruby
-atlantis_installer 'atlantis' do
-  version '0.15.0'
-  checksum 'a236e7c9df159f8787b143c670f1899dd4bc4349f23ed696468600280fa1266e'
-end
+atlantis_installer 'default'
 ```
