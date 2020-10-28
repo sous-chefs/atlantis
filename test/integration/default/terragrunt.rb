@@ -15,6 +15,6 @@ describe file(terragrunt_bin) do
 end
 
 describe command("#{terragrunt_bin} --version") do
-  its('stdout') { should match(/terragrunt\sversion\sv([0-9]+\.){2}[0-9+]/) }
+  its('stdout') { should match(/terragrunt\sversion\sv0.25.4/) }
   its('exit_status') { should eq 0 }
 end

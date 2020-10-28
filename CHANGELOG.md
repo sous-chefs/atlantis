@@ -10,6 +10,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Added
 
 - Support for installing terragrunt and documentation of examples for configuration
+- Default version support for installers to get setup without having to lookup versions
 
 ### Fixed
 

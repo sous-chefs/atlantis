@@ -26,15 +26,8 @@ end
 # install required dependencies
 package %w(unzip git)
 
-atlantis_installer 'atlantis' do
-  version '0.15.0'
-  checksum 'a236e7c9df159f8787b143c670f1899dd4bc4349f23ed696468600280fa1266e'
-end
-
-terraform_installer 'terraform' do
-  version '0.13.3'
-  checksum '35c662be9d32d38815cde5fa4c9fa61a3b7f39952ecd50ebf92fd1b2ddd6109b'
-end
+atlantis_installer 'atlantis'
+terraform_installer 'terraform'
 
 terragrunt_repo_config = {
   'repos' => [
@@ -84,10 +77,7 @@ atlantis_config 'repo-config' do
   template_variables terragrunt_repo_config
 end
 
-terragrunt_installer 'terragrunt' do
-  version '0.25.4'
-  checksum '3b033389977ca6e7d10bad10514f22fa767c85b76db92befe83e67bafa2c8413'
-end
+terragrunt_installer 'terragrunt'
 
 if node['platform_version'] == '14.04'
   atlantis_service_upstart 'atlantis'

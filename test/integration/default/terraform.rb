@@ -15,6 +15,6 @@ describe file(terraform_bin) do
 end
 
 describe command("#{terraform_bin} --version") do
-  its('stdout') { should match(/(Terraform)\sv([0-9]+\.){2}[0-9+]/) }
+  its('stdout') { should match(/(Terraform)\sv0.13.3/) }
   its('exit_status') { should eq 0 }
 end

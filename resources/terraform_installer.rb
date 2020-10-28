@@ -5,14 +5,14 @@ resource_name :terraform_installer
 provides :terraform_installer
 
 property :append_version_to_file, [true, false], default: false
-property :checksum, String, regex: /^[a-zA-Z0-9]{64}$/
+property :checksum, String, regex: /^[a-zA-Z0-9]{64}$/, default: '35c662be9d32d38815cde5fa4c9fa61a3b7f39952ecd50ebf92fd1b2ddd6109b'
 property :download_base_url, String, default: 'https://releases.hashicorp.com'
 
 property :group, [String, Integer], default: 'atlantis'
 property :owner, String, default: 'atlantis'
 property :mode, [String, Integer], default: '0755'
 
-property :version, String, required: true
+property :version, String, default: '0.13.3'
 
 default_action :install
 

@@ -15,7 +15,7 @@ describe file(atlantis_bin) do
 end
 
 describe command("#{atlantis_bin} version") do
-  its('stdout') { should match(/(atlantis)\s([0-9]+\.){2}[0-9+]/) }
+  its('stdout') { should match(/(atlantis)\s0.15.0/) }
   its('exit_status') { should eq 0 }
 end
 

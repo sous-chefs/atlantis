@@ -11,14 +11,14 @@
 
 ## Properties
 
-| name                        | Type            | Default                                                        | Description   |
-| --------------------------- | --------------- | -------------------------------------------------------------- | ------------- |
-| checksum                    | String          |                                                                | Required      |
-| download_base_url           | String          | `https://github.com/gruntwork-io/terragrunt/releases/download` |               |
-| group                       | String, Integer | `atlantis`                                                     |               |
-| owner                       | String          | `atlantis`                                                     |               |
-| mode                        | String, Integer | `0755`                                                         |               |
-| version                     | String          |                                                                | Required      |
+| name                        | Type            | Default                                                            | Description   |
+| --------------------------- | --------------- | ------------------------------------------------------------------ | ------------- |
+| checksum                    | String          | `3b033389977ca6e7d10bad10514f22fa767c85b76db92befe83e67bafa2c8413` | Required      |
+| download_base_url           | String          | `https://github.com/gruntwork-io/terragrunt/releases/download`     |               |
+| group                       | String, Integer | `atlantis`                                                         |               |
+| owner                       | String          | `atlantis`                                                         |               |
+| mode                        | String, Integer | `0755`                                                             |               |
+| version                     | String          | `0.25.4`                                                           | Required      |
 
 ## Examples
 

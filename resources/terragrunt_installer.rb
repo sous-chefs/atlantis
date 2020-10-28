@@ -4,14 +4,14 @@ include AtlantisCookbook::Helpers
 resource_name :terragrunt_installer
 provides :terragrunt_installer
 
-property :checksum, String, regex: /^[a-zA-Z0-9]{64}$/
+property :checksum, String, regex: /^[a-zA-Z0-9]{64}$/, default: '3b033389977ca6e7d10bad10514f22fa767c85b76db92befe83e67bafa2c8413'
 property :download_base_url, String, default: 'https://github.com/gruntwork-io/terragrunt/releases/download'
 
-property :group, [String, Integer], default: 'atlantis'
-property :owner, [String, Integer], default: 'atlantis'
+property :group, [String, Integer], default: 'root'
+property :owner, [String, Integer], default: 'root'
 property :mode, [String, Integer], default: '0755'
 
-property :version, String, required: true
+property :version, String, default: '0.25.4'
 
 default_action :install
 
