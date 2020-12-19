@@ -6,7 +6,7 @@ maintainer_email 'help@sous-chefs.org'
 chef_version     '>= 13'
 license          'MIT'
 description      'Installs and configures atlantis'
-version          '1.2.0'
+version          '1.2.1'
 
 supports 'centos'
 supports 'ubuntu'
