@@ -45,7 +45,7 @@ terragrunt_repo_config = {
             },
           },
           {
-            'run' => 'terragrunt plan -no-color -out=$PLANFILE 2>&1 | awk \'BEGIN{flag=0} { if (!flag && /------------------------------------------------------------------------/){ flag=1; buf="" } else {buf = buf $0 ORS} } END { printf "%s", buf; }\'',
+            'run' => 'set -o pipefail; terragrunt plan -no-color -out=$PLANFILE 2>&1 | awk \'BEGIN{flag=0} { if (!flag && /------------------------------------------------------------------------/){ flag=1; buf="" } else {buf = buf $0 ORS} } END { printf "%s", buf; }\'',
           },
         ],
       },
@@ -58,7 +58,7 @@ terragrunt_repo_config = {
             },
           },
           {
-            'run' => 'terragrunt apply -no-color $PLANFILE 2>&1 | awk \'BEGIN{flag=0} { if (!flag && /------------------------------------------------------------------------/){ flag=1; buf="" } else {buf = buf $0 ORS} } END { printf "%s", buf; }\'',
+            'run' => 'set -o pipefail; terragrunt apply -no-color $PLANFILE 2>&1 | awk \'BEGIN{flag=0} { if (!flag && /------------------------------------------------------------------------/){ flag=1; buf="" } else {buf = buf $0 ORS} } END { printf "%s", buf; }\'',
           },
         ],
       },
