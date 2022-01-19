@@ -25,13 +25,13 @@ The following cookbooks are direct dependencies because they're used for common 
 The following platforms are supported and tested with Test Kitchen:
 
 - CentOS 7+
-- Ubuntu 14.04+
+- Ubuntu 18.04+
 
 Other Debian and RHEL family distributions are assumed to work.
 
 ### Chef
 
-- Chef 15+
+- Chef 15.3+
 
 May continue working on older EOL versions of Chef
 
