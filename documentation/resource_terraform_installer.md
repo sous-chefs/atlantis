@@ -1,8 +1,6 @@
-[back to resource list](https://github.com/sous-chefs/atlantis#resources)
-
----
-
 # terraform_installer
+
+[back to resource list](https://github.com/sous-chefs/atlantis#resources)
 
 ## Actions
 
