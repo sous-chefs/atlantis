@@ -6,7 +6,7 @@ maintainer_email 'help@sous-chefs.org'
 chef_version     '>= 15.3'
 license          'Apache-2.0'
 description      'Installs and configures atlantis'
-version          '2.0.4'
+version          '3.0.0'
 
 supports 'centos'
 supports 'ubuntu'
