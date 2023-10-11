@@ -23,9 +23,7 @@ jobs:
     strategy:
       matrix:
         os:
-          - "centos-7"
-          - "centos-stream-8"
-          - "ubuntu-2004"
+          - "almalinux-9"
           - "ubuntu-2204"
         suite:
           - "default"
