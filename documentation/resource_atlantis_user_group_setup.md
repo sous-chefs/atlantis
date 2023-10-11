@@ -1,8 +1,6 @@
-[back to resource list](https://github.com/sous-chefs/atlantis#resources)
-
----
-
 # atlantis_user_group
+
+[back to resource list](https://github.com/sous-chefs/atlantis#resources)
 
 ## Actions
 

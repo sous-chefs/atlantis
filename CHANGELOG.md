@@ -7,6 +7,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## Unreleased
 
+- Change license to Apache-2.0
+- Markdown lint fixes
+- Update standard files
+
 ## 2.0.4 - *2023-03-02*
 
 - Fix yaml

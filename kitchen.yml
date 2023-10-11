@@ -15,9 +15,9 @@ verifier:
 
 platforms:
   - name: centos-7
-  - name: centos-8
-  - name: ubuntu-18.04
+  - name: centos-stream-8
   - name: ubuntu-20.04
+  - name: ubuntu-22.04
 
 suites:
   - name: default

@@ -11,7 +11,8 @@ property :group, [String, Integer], default: 'atlantis'
 property :owner, String, default: 'atlantis'
 
 property :mode, [String, Integer], default: '0755'
-property :version, String, default: '0.15.0'
+property :version, String, default: '0.25.0'
+property :ignore_checksum, [true, false], default: false
 
 default_action :install
 
@@ -21,7 +22,7 @@ action :install do
   ark 'atlantis' do
     url github_download_url(new_resource.download_base_url, new_resource.version)
     version new_resource.version
-    checksum new_resource.checksum unless new_resource.checksum.nil?
+    checksum new_resource.checksum unless new_resource.ignore_checksum
     prefix_root '/opt/atlantis'
     prefix_home '/opt/atlantis'
     has_binaries ['atlantis']

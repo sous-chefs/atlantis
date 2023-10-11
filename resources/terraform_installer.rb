@@ -8,6 +8,7 @@ unified_mode true
 property :append_version_to_file, [true, false], default: false
 property :checksum, String, regex: /^[a-zA-Z0-9]{64}$/, default: '35c662be9d32d38815cde5fa4c9fa61a3b7f39952ecd50ebf92fd1b2ddd6109b'
 property :download_base_url, String, default: 'https://releases.hashicorp.com'
+property :ignore_checksum, [true, false], default: false
 
 property :group, [String, Integer], default: 'atlantis'
 property :owner, String, default: 'atlantis'
@@ -27,7 +28,7 @@ action :install do
       new_resource.version
     )
     version new_resource.version
-    checksum new_resource.checksum unless new_resource.checksum.nil?
+    checksum new_resource.checksum unless new_resource.ignore_checksum
     prefix_root '/opt/atlantis'
     prefix_home '/opt/atlantis'
     owner new_resource.owner
