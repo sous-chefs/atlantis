@@ -9,14 +9,14 @@ end
 # drop down atlantis config
 # create a local hash for testing
 config_vars = {
-  'atlantis-url'          => 'https://localhost:4141',
-  'allow-repo-config'     => false,
-  'gh-user'               => 'my-atlantis-bot',
-  'gh-token'              => 'A_GITHUB_TOKEN',
-  'gh-webhook-secret'     => 'A_GITHUB_WEBHOOK_SECRET',
-  'log-level'             => 'info',
-  'port'                  => 4141,
-  'repo-allowlist'        => %w(org/repo1 org/repo2).join(','),
+  'atlantis-url' => 'https://localhost:4141',
+  'allow-repo-config' => false,
+  'gh-user' => 'my-atlantis-bot',
+  'gh-token' => 'A_GITHUB_TOKEN',
+  'gh-webhook-secret' => 'A_GITHUB_WEBHOOK_SECRET',
+  'log-level' => 'info',
+  'port' => 4141,
+  'repo-allowlist' => %w(org/repo1 org/repo2).join(','),
 }
 
 atlantis_config 'atlantis' do
@@ -52,7 +52,7 @@ terragrunt_repo_config = {
           {
             'env' => {
               'name' => 'TERRAGRUNT_TFPATH',
-              'command' => "echo \"/opt/atlantis/data/bin/terraform\${ATLANTIS_TERRAFORM_VERSION}\"",
+              'command' => 'echo "/opt/atlantis/data/bin/terraform${ATLANTIS_TERRAFORM_VERSION}"',
             },
           },
           {
@@ -65,7 +65,7 @@ terragrunt_repo_config = {
           {
             'env' => {
               'name' => 'TERRAGRUNT_TFPATH',
-              'command' => "echo \"/opt/atlantis/data/bin/terraform\${ATLANTIS_TERRAFORM_VERSION}\"",
+              'command' => 'echo "/opt/atlantis/data/bin/terraform${ATLANTIS_TERRAFORM_VERSION}"',
             },
           },
           {
