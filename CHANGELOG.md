@@ -7,6 +7,13 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## Unreleased
 
+## [3.0.7](https://github.com/sous-chefs/atlantis/compare/3.0.6...v3.0.7) (2025-10-14)
+
+
+### Bug Fixes
+
+* **ci:** Update workflows to use release pipeline ([#47](https://github.com/sous-chefs/atlantis/issues/47)) ([1661274](https://github.com/sous-chefs/atlantis/commit/1661274ad07de89c9e4a2de5c6e91fcf4bbdda30))
+
 ## 3.0.6 - *2025-09-04*
 
 ## 3.0.5 - *2024-12-04*
