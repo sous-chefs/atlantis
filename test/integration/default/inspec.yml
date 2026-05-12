@@ -1,0 +1,7 @@
+---
+name: default
+title: Atlantis default resource suite
+maintainer: Sous Chefs
+license: Apache-2.0
+summary: Verify Atlantis default resource behavior
+version: 1.0.0

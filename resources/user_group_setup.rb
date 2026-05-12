@@ -11,12 +11,18 @@ default_action :create
 
 # actions
 action :create do
+  group new_resource.groupname do
+    action :create
+    system true
+  end
+
   user new_resource.username do
     comment 'Atlantis User'
     system true
     action :create
     manage_home true # for terraform to cache plugins
     home new_resource.home
+    gid new_resource.groupname
   end
 
   # update the dir because we cant control the permissions
@@ -28,12 +34,6 @@ action :create do
     group new_resource.groupname
     mode '751'
     action :create
-  end
-
-  group new_resource.groupname do
-    action :create
-    members new_resource.username
-    system true
   end
 end
 

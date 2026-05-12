@@ -20,6 +20,8 @@ default_action :install
 
 # actions
 action :install do
+  package 'unzip'
+
   # install terraform
   ark 'terraform' do
     url hashicorp_download_url(

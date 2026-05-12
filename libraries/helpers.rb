@@ -6,7 +6,7 @@ module AtlantisCookbook
       case node['kernel']['processor']
       when /x86_64/
         'amd64'
-      when /armv8/
+      when /armv8|aarch64/
         'arm64'
       else
         '386'
