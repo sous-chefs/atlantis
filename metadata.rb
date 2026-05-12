@@ -6,7 +6,7 @@ maintainer_email 'help@sous-chefs.org'
 chef_version     '>= 15.3'
 license          'Apache-2.0'
 description      'Provides resources to install and configure Atlantis'
-version          '3.0.8'
+version          '4.0.0'
 
 supports 'almalinux', '>= 8.0'
 supports 'amazon', '>= 2023.0'
