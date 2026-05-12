@@ -18,6 +18,8 @@ default_action :install
 
 # actions
 action :install do
+  package 'unzip'
+
   # install atlantis
   ark 'atlantis' do
     url github_download_url(new_resource.download_base_url, new_resource.version)

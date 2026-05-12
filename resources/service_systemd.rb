@@ -14,6 +14,7 @@ property :atlantis_success_exit_status, [Integer, String], default: 143
 property :atlantis_user, String, default: 'atlantis'
 property :atlantis_group, String, default: 'atlantis'
 property :use_exec_stop, [true, false], default: true
+property :service_actions, [Array, Symbol], default: %i(create enable start)
 property :environment, [String, Array]
 property :environment_file, [String, Array]
 
@@ -44,7 +45,7 @@ action :setup do
 
   systemd_unit 'atlantis.service' do
     content(service_content)
-    action [:create, :enable, :start]
+    action new_resource.service_actions
   end
 end
 

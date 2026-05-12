@@ -1,12 +1,14 @@
 # atlantis Cookbook
 
 [![Cookbook Version](https://img.shields.io/cookbook/v/atlantis.svg)](https://supermarket.chef.io/cookbooks/atlantis)
-[![CI State](https://github.com/sous-chefs/apache2/workflows/ci/badge.svg)](https://github.com/sous-chefs/atlantis/actions?query=workflow%3Aci)
+[![CI State](https://github.com/sous-chefs/atlantis/workflows/ci/badge.svg)](https://github.com/sous-chefs/atlantis/actions?query=workflow%3Aci)
 [![OpenCollective](https://opencollective.com/sous-chefs/backers/badge.svg)](#backers)
 [![OpenCollective](https://opencollective.com/sous-chefs/sponsors/badge.svg)](#sponsors)
 [![License](https://img.shields.io/badge/License-Apache%202.0-green.svg)](https://opensource.org/licenses/Apache-2.0)
 
-Installs and configures an [atlantis server](https://www.runatlantis.io) with terraform, the cookbook only gives custom resources to leverage and will not include any recipes, for an example you can look at the testing cookbook at `test/fixtures/cookbooks/atlantis_test`.
+Installs and configures an [Atlantis server](https://www.runatlantis.io) with custom resources. The cookbook does not ship public recipes or attributes; examples live in the test cookbook at `test/cookbooks/test`.
+
+See [migration.md](migration.md) for the current breaking migration notes.
 
 ## Maintainers
 
@@ -24,10 +26,15 @@ The following cookbooks are direct dependencies because they're used for common 
 
 The following platforms are supported and tested with Test Kitchen:
 
-- CentOS 7+
-- Ubuntu 18.04+
-
-Other Debian and RHEL family distributions are assumed to work.
+- AlmaLinux 8+
+- Amazon Linux 2023+
+- CentOS Stream 9+
+- Debian 12+
+- Fedora latest
+- openSUSE Leap 15+
+- Oracle Linux 8+
+- Rocky Linux 8+
+- Ubuntu 22.04+
 
 ### Chef
 
@@ -37,13 +44,12 @@ May continue working on older EOL versions of Chef
 
 ## Resources
 
-- [atlantis_config](https://github.com/sous-chefs/atlantis/blob/master/documentation/resource_atlantis_config.md)
-- [atlantis_installer](https://github.com/sous-chefs/atlantis/blob/master/documentation/resource_atlantis_installer.md)
-- [atlantis_service_systemd](https://github.com/sous-chefs/atlantis/blob/master/documentation/resource_atlantis_service_systemd.md)
-- [atlantis_service_upstart](https://github.com/sous-chefs/atlantis/blob/master/documentation/resource_atlantis_service_upstart.md)
-- [terraform_installer](https://github.com/sous-chefs/atlantis/blob/master/documentation/resource_terraform_installer.md)
-- [terragrunt_installer](https://github.com/sous-chefs/atlantis/blob/master/documentation/resource_terragrunt_installer.md)
-- [atlantis_user_group_setup](https://github.com/sous-chefs/atlantis/blob/master/documentation/resource_atlantis_user_group_setup.md)
+- [atlantis_config](documentation/atlantis_config.md)
+- [atlantis_installer](documentation/atlantis_installer.md)
+- [atlantis_service_systemd](documentation/atlantis_service_systemd.md)
+- [atlantis_user_group_setup](documentation/atlantis_user_group_setup.md)
+- [terraform_installer](documentation/terraform_installer.md)
+- [terragrunt_installer](documentation/terragrunt_installer.md)
 
 ## Usage
 
