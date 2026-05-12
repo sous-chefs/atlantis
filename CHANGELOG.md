@@ -7,6 +7,17 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## Unreleased
 
+## [4.0.0](https://github.com/sous-chefs/atlantis/compare/v3.0.8...v4.0.0) (2026-05-12)
+
+
+### ⚠ BREAKING CHANGES
+
+* migrate atlantis to custom resources ([#62](https://github.com/sous-chefs/atlantis/issues/62))
+
+### Features
+
+* migrate atlantis to custom resources ([#62](https://github.com/sous-chefs/atlantis/issues/62)) ([d488537](https://github.com/sous-chefs/atlantis/commit/d48853716dc50d392eef80e5af431b3f0810ba94))
+
 ## [3.0.8](https://github.com/sous-chefs/atlantis/compare/v3.0.7...v3.0.8) (2026-04-20)
 
 
